@@ -25,6 +25,7 @@
         "import/prefer-default-export": "off",
         "import/extensions": "off",
         "no-unused-vars": "warn",
+				"no-tabs": "off",
         "react/jsx-filename-extension": [
             1,
             {
