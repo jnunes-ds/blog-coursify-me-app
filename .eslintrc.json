@@ -4,15 +4,8 @@
         "es2021": true
     },
     "extends": [
-        "eslint:recommended",
         "plugin:react/recommended",
-        "plugin@typescript-eslint/recommended",
-        "airbnb",
-        "airbnb-typescript",
-        "airbnb/hooks",
-        "prettier",
-        "prettier/typescript-eslint",
-        "prettier/react"
+        "airbnb"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -24,12 +17,23 @@
     },
     "plugins": [
         "react",
-        "@typescript-eslint",
-        "prettier"
+        "@typescript-eslint"
     ],
     "rules": {
-        "prettier/prettier": "error",
-        "space-before-function-paren": false,
-        "react/prop-types": "off"
+        "no-duplicate-imports": "error",
+        "import/no-unresolved": "off",
+        "import/prefer-default-export": "off",
+        "import/extensions": "off",
+        "no-unused-vars": "warn",
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [
+                    ".js",
+                    ".jsx",
+                    ".tsx"
+                ]
+            }
+        ]
     }
 }
