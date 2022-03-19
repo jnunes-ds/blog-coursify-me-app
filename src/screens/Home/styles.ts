@@ -10,3 +10,7 @@ export const Container = styled.View`
 export const Title = styled.Text`
     font-size: ${RFValue(50)}px;
 `;
+
+export const Subtitle = styled.Text`
+    font-size: ${RFValue(25)}px;
+`;
