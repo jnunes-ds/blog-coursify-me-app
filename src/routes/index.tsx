@@ -2,8 +2,8 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import {
-    Home,
-    Post
+  Home,
+  Post,
 } from '../screens';
 
 export type RootStackParamList = {
@@ -13,12 +13,11 @@ export type RootStackParamList = {
 
 const Stack = createStackNavigator<RootStackParamList>();
 
-export function Routes(){
-
-    return (
-        <Stack.Navigator initialRouteName='Home'  >
-            <Stack.Screen name='Home' component={Home} options={{headerShown: false}} />
-            <Stack.Screen name='Post' component={Post} options={{headerShown: false}} />
-        </Stack.Navigator>
-    );
+export function Routes() {
+  return (
+    <Stack.Navigator initialRouteName="Home">
+      <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
+      <Stack.Screen name="Post" component={Post} options={{ headerShown: false }} />
+    </Stack.Navigator>
+  );
 }
