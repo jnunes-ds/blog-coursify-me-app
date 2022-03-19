@@ -3,10 +3,12 @@
   "compilerOptions": {
     "strict": true,
 		"baseUrl": "src",
+		"rootDir": "./",
 		"paths": {
 			"~/*": [
 				"*"
 			]
 		}
-  }
+  },
+	
 }

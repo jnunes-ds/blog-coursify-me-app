@@ -1,6 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import React from 'react';
+import { Header } from '~/components/Header';
 import { RootStackParamList } from '../../routes';
 
 import {
@@ -12,6 +13,8 @@ type homeScreenProp = StackNavigationProp<RootStackParamList, 'Home'>;
 export function Home() {
   const navigation = useNavigation<homeScreenProp>();
   return (
-    <Container />
+    <Container>
+      <Header />
+    </Container>
   );
 }

@@ -8,6 +8,7 @@ export default {
     title: '#535353',
     text: '#666666',
     text_light: '#868686',
+    shadow: '#00000029',
   },
   fonts: {
     title: 'Roboto_700Bold',
