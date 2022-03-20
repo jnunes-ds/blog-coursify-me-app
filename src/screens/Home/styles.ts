@@ -8,10 +8,9 @@ export const Container = styled.View`
 		background-color: ${({ theme }) => theme.colors.background};
 `;
 
-export const Title = styled.Text`
-    font-size: ${RFValue(50)}px;
-`;
-
-export const Subtitle = styled.Text`
-    font-size: ${RFValue(25)}px;
+export const Body = styled.View`
+	flex: 1;
+	background-color: ${({ theme }) => theme.colors.background};
+	justify-content: center;
+	align-items: center;
 `;
