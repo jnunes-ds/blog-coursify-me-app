@@ -1,5 +1,6 @@
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
 import { RFValue } from 'react-native-responsive-fontsize';
+import { Platform } from 'react-native';
 
 export const Container = styled.View`
 	width: 100%;
@@ -35,6 +36,11 @@ export const CarouselContainer = styled.View`
 `;
 
 export const PostCardContainer = styled.View`
-	margin-right: 20px;
-	margin-left: 17px
+	${() => (Platform.OS === 'ios' ? css`
+		margin-right: 20px;
+		margin-left: 17px;
+	` : css`
+			margin-right: 10px;
+			margin-left: 27px;
+	`)};
 `;
