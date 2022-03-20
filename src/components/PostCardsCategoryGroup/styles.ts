@@ -19,6 +19,7 @@ export const Title = styled.Text`
 	font-family: ${({ theme }) => theme.fonts.title};
 	font-size: ${RFValue(22)}px;
 	color: ${({ theme }) => theme.colors.primary};
+	max-width: 60%;
 `;
 
 export const SeeMoreContainer = styled.TouchableOpacity`
