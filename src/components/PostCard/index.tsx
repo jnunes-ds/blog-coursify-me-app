@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
+import RenderHTML from 'react-native-render-html';
 import space from '../../assets/space.png';
 
 import {
@@ -25,6 +26,7 @@ type NavigationPostCardProp = StackNavigationProp<RootStackParamList, 'Post'>;
 
 export function PostCard({ title, text } : Props) {
   const navigation = useNavigation<NavigationPostCardProp>();
+  const TextReplaced = text.replace('<p>', '');
 
   const handleGoToPost = useCallback(() => {
     navigation.navigate('Post');
@@ -37,11 +39,15 @@ export function PostCard({ title, text } : Props) {
       </CardImageContainer>
       <TextsContainer>
         <TitleContainer>
-          <Title>
+          <Title numberOfLines={2}>
             {title}
           </Title>
         </TitleContainer>
-        <Text>{text}</Text>
+        <Text
+          numberOfLines={4}
+        >
+          {TextReplaced}
+        </Text>
         <LinkToPost onPress={handleGoToPost}>
           <LinkToPostLabel>Leia mais</LinkToPostLabel>
         </LinkToPost>

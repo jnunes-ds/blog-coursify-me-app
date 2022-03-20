@@ -1,3 +1,6 @@
+/* eslint-disable react/jsx-indent-props */
+/* eslint-disable react/jsx-indent */
+/* eslint-disable no-mixed-spaces-and-tabs */
 import React, { useEffect, useMemo, useState } from 'react';
 
 import { useNavigation } from '@react-navigation/native';
@@ -65,20 +68,20 @@ export function Post({ postId }: Props) {
     <Container>
       <Header haveABackButton />
       {
-				!loading
-				  ? (
-  <Content>
-    <Body>
-      <Title>{postTitle}</Title>
-      <RenderHTML
-        contentWidth={450}
-        source={postTextHTML}
-      />
-    </Body>
-    <Footer />
-  </Content>
+				loading
+				  ? <AppLoading />
+				  : (
+						<Content>
+							<Body>
+								<Title>{postTitle}</Title>
+								<RenderHTML
+									contentWidth={450}
+									source={postTextHTML}
+								/>
+							</Body>
+							<Footer />
+						</Content>
 				  )
-				  : <AppLoading />
 			}
     </Container>
   );

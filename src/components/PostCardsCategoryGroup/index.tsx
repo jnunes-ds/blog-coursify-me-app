@@ -1,7 +1,6 @@
 import React, {
-  useRef, useCallback, useState, useEffect,
+  useRef, useCallback,
 } from 'react';
-import { Dimensions } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import { MaterialIcons } from '@expo/vector-icons';
 import { PostCard } from '../PostCard';
@@ -15,24 +14,29 @@ import {
   SeeMoreContainer,
   SeeMoreText,
 } from './styles';
-import { BackButton } from '../BackButton';
+import { ICompleteCategories } from '~/models/Categories';
+import { IPost } from '~/models/Posts';
 
 interface Props{
-		title: string;
+	data: ICompleteCategories;
 }
 
-export function PostCardsCategoryGroup({ title } : Props) {
-  const flatListRef = useRef<FlatList>(null);
-  const carouselItems = [1, 2, 3, 4, 5];
+interface flatListItem {
+	index: number;
+	item: IPost;
+}
 
-  const renderItem = useCallback(() => (
-    <PostCardContainer>
+export function PostCardsCategoryGroup({ data } : Props) {
+  const flatListRef = useRef<FlatList>(null);
+
+  const renderItem: React.FC<flatListItem> = ({ item }) => (
+    <PostCardContainer key={item.id}>
       <PostCard
-        title="Como criar uma landing page de alta ..."
-        text="Uma landing page de alta conversão é o que todo mundo que vende online precisa ter para otimizar ..."
+        title={String(item?.title.rendered) ?? 'título'}
+        text={String(item?.excerpt.rendered ?? 'Texto')}
       />
     </PostCardContainer>
-  ), []);
+  );
 
   const goToEnd = useCallback(() => {
     flatListRef.current?.scrollToEnd({ animated: true });
@@ -41,7 +45,7 @@ export function PostCardsCategoryGroup({ title } : Props) {
   return (
     <Container>
       <TitleContainer>
-        <Title>{title}</Title>
+        <Title>{data.name}</Title>
         <SeeMoreContainer onPress={goToEnd}>
           <SeeMoreText>Ver mais</SeeMoreText>
           <MaterialIcons size={25} name="arrow-right" />
@@ -51,9 +55,10 @@ export function PostCardsCategoryGroup({ title } : Props) {
         <FlatList
           ref={flatListRef}
           horizontal
-          data={carouselItems}
+          data={data.posts}
           renderItem={renderItem}
           showsHorizontalScrollIndicator={false}
+          initialNumToRender={5}
         />
       </CarouselContainer>
     </Container>

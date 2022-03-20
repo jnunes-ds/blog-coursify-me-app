@@ -10,4 +10,5 @@ export interface IBlogService {
 	getMedia(): Promise<AxiosResponse<IMedia[], AxiosError>>;
 	getMediaById(id: number): Promise<AxiosResponse<IMedia, AxiosError>>;
 	getPostById(id: number): Promise<AxiosResponse<IPost, AxiosError>>;
+	getPostsByCategory(categoryId: number): Promise<AxiosResponse<IPost[], AxiosError>>
 }

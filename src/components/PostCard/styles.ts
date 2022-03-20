@@ -37,7 +37,6 @@ export const Title = styled.Text`
 	font-family: ${({ theme }) => theme.fonts.title};
 	font-size: ${RFValue(17)}px;
 	color: ${({ theme }) => theme.colors.primary};
-	
 `;
 
 export const Text = styled.Text`

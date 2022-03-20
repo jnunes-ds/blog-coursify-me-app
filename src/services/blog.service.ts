@@ -58,6 +58,16 @@ class BlogService implements IBlogService {
       throw new Error('getPostsById', error);
     }
   }
+
+  // @ts-ignore
+  async getPostsByCategory(categoryId: number): Promise<AxiosResponse<IPost[], AxiosError<any, any>>> {}
+  public static async getPostsByCategory(categoryId: number): Promise<AxiosResponse<IPost[], AxiosError<any, any>>> {
+    try {
+      return await api.get(`/posts?categories=${categoryId}`);
+    } catch (error: any) {
+      throw new Error('getPostsByCategory', error);
+    }
+  }
 }
 
 export default BlogService;
