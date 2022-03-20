@@ -7,7 +7,7 @@ import {
 } from '../screens';
 
 export type RootStackParamList = {
-    Home: undefined;
+  Home: undefined;
   Post: undefined;
 };
 

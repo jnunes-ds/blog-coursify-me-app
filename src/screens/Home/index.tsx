@@ -10,10 +10,10 @@ import {
   Body,
 } from './styles';
 
-type homeScreenProp = StackNavigationProp<RootStackParamList, 'Home'>;
+type NavigationHomeProp = StackNavigationProp<RootStackParamList, 'Post'>;
 
 export function Home() {
-  const navigation = useNavigation<homeScreenProp>();
+  const navigation = useNavigation<NavigationHomeProp>();
   return (
     <Container>
       <Header />
