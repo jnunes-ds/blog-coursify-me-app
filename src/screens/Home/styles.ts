@@ -11,6 +11,6 @@ export const Container = styled.View`
 export const Body = styled.View`
 	flex: 1;
 	background-color: ${({ theme }) => theme.colors.background};
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 `;

@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import React from 'react';
 import { Header } from '~/components/Header';
-import { PostCard } from '~/components/PostCard';
+import { PostCardsCategoryGroup } from '~/components/PostCardsCategoryGroup';
 import { RootStackParamList } from '../../routes';
 
 import {
@@ -18,10 +18,7 @@ export function Home() {
     <Container>
       <Header />
       <Body>
-        <PostCard
-          title="Como criar uma landing page de alta ..."
-          text="Uma landing page de alta conversão é o que todo mundo que vende online precisa ter para otimizar ..."
-        />
+        <PostCardsCategoryGroup title="Cursos online" />
       </Body>
     </Container>
   );
