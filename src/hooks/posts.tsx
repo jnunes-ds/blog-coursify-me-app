@@ -11,7 +11,7 @@ import { IPost } from '../models/Posts';
 
 interface IPostsContextProps {
 	// eslint-disable-next-line no-unused-vars
-	getPost(id: number): Promise<AxiosResponse<IPost> | void>;
+	getPost(id: number): Promise<IPost| void>;
 	getAllPosts(): Promise<void>;
 	allCategories: ICompleteCategories[];
 }
@@ -36,7 +36,7 @@ export function PostsContextProvider({ children }: Props) {
   const getPost = async (id: number) => {
     try {
       const response = await BlogService.getPostById(id);
-      return response;
+      return response.data;
     } catch (error) {
       console.error(error);
     }

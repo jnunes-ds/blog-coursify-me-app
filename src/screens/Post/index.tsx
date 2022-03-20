@@ -1,7 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
+// import RenderHTML from 'react-native-render-html';
+import { Dimensions } from 'react-native';
+import RenderHTML from 'react-native-render-html';
+import AppLoading from 'expo-app-loading';
 import imagePoste from '../../assets/space.png';
 import {
   Container,
@@ -22,9 +26,17 @@ interface Props{
 	postId: number
 }
 
+interface ISource {
+	html: string;
+}
+
 export function Post({ postId }: Props) {
+  const [loading, setLoading] = useState<boolean>(true);
   const [post, setPost] = useState<IPost>({} as IPost);
+  const [postTitle, setPostTitle] = useState<string>('');
+  const [postTextHTML, setPostTextHTML] = useState<ISource>({} as ISource);
   const navigation = useNavigation<NavigationPostProp>();
+  const width = Dimensions.get('window');
   const { getPost } = usePosts();
 
   useEffect(() => {
@@ -37,25 +49,37 @@ export function Post({ postId }: Props) {
   }, []);
 
   useEffect(() => {
-    console.log(':::::POST:::::', post);
+    const getPostInformations = () => {
+      if (!post || post.id === undefined) return;
+      const source = {
+        html: post.content.rendered,
+      };
+      setPostTextHTML(source);
+      setPostTitle(post.title.rendered);
+      setLoading(false);
+    };
+    getPostInformations();
   }, [post]);
 
   return (
     <Container>
       <Header haveABackButton />
-      <Content>
-        <Body>
-          <Title>como criar uma landing page de alta conversão para o seu curso online </Title>
-          <Text>Uma landing page de alta conversão é o que todo mundo que vende online precisa ter para otimizar resultados.</Text>
-          <Text>No mercado competitivo de hoje em dia, é justo dizer que quem tem a melhor página de venda sai na frente.</Text>
-          <PostImageContainer>
-            <PostImage source={imagePoste} />
-          </PostImageContainer>
-          <Text>Uma landing page de alta conversão é o que todo mundo que vende online precisa ter para otimizar resultados.</Text>
-          <Text>No mercado competitivo de hoje em dia, é justo dizer que quem tem a melhor página de venda sai na frente.</Text>
-        </Body>
-        <Footer />
-      </Content>
+      {
+				!loading
+				  ? (
+  <Content>
+    <Body>
+      <Title>{postTitle}</Title>
+      <RenderHTML
+        contentWidth={450}
+        source={postTextHTML}
+      />
+    </Body>
+    <Footer />
+  </Content>
+				  )
+				  : <AppLoading />
+			}
     </Container>
   );
 }
