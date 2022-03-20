@@ -15,6 +15,7 @@ import {
   SeeMoreContainer,
   SeeMoreText,
 } from './styles';
+import { BackButton } from '../BackButton';
 
 interface Props{
 		title: string;

@@ -3,7 +3,11 @@ import { RFValue } from 'react-native-responsive-fontsize';
 
 export const Container = styled.View`
     flex: 1;
-    justify-content: center;
+`;
+
+export const Body = styled.View`
+	flex: 1;
+	justify-content: center;
     align-items: center;
 `;
 

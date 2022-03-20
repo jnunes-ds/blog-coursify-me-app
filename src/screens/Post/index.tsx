@@ -5,10 +5,12 @@ import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import {
   Container,
+  Body,
   Subtitle,
   Title,
 } from './styles';
 import { RootStackParamList } from '../../routes';
+import { Header } from '~/components/Header';
 
 type NavigationPostProp = StackNavigationProp<RootStackParamList, 'Home'>;
 interface Props{
@@ -20,10 +22,13 @@ export function Post() {
 
   return (
     <Container>
-      <TouchableWithoutFeedback onPress={() => navigation.navigate('Home')}>
-        <Title> Hello World! </Title>
-        <Subtitle>From Post screen</Subtitle>
-      </TouchableWithoutFeedback>
+      <Header haveABackButton />
+      <Body>
+        <TouchableWithoutFeedback onPress={() => navigation.navigate('Home')}>
+          <Title> Hello World! </Title>
+          <Subtitle>From Post screen</Subtitle>
+        </TouchableWithoutFeedback>
+      </Body>
     </Container>
   );
 }

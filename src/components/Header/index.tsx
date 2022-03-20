@@ -10,15 +10,23 @@ import {
   MenuButtonContainer,
   MenuButtonSvg,
 } from './styles';
+import { BackButton } from '../BackButton';
 
-export function Header() {
+interface Props {
+	haveABackButton?: boolean;
+}
+
+export function Header({ haveABackButton }: Props) {
   return (
     <Container>
       <LogoContainer>
+        {
+					haveABackButton
+        && <BackButton />
+				}
         <Logo source={LogoImage} />
       </LogoContainer>
       <MenuButtonContainer>
-        {/* <Feather size={22} /> */}
         <MenuButtonSvg />
       </MenuButtonContainer>
     </Container>

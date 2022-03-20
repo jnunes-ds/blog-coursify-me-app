@@ -17,6 +17,9 @@ export const Container = styled.View`
 `;
 
 export const LogoContainer = styled.View`
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
 	width: 169px;
 	height: 50px;
 `;
