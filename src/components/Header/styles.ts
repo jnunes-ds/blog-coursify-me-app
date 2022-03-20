@@ -8,7 +8,6 @@ export const Container = styled.View`
 	height: ${RFValue(84)}px;
 	border-bottom-color: ${({ theme }) => theme.colors.shadow};
 	border-bottom-width: ${RFValue(3)}px;
-	elevation: ${RFValue(6)}px;
 	shadow-color: ${({ theme }) => theme.colors.shadow};
 	justify-content: space-between;
 	align-items: flex-end;

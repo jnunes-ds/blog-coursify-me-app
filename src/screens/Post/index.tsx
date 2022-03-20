@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -14,15 +14,31 @@ import {
 } from './styles';
 import { RootStackParamList } from '../../routes';
 import { Header, Footer } from '~/components';
+import { usePosts } from '~/hooks/posts';
+import { IPost } from '../../models/Posts';
 
 type NavigationPostProp = StackNavigationProp<RootStackParamList, 'Home'>;
 interface Props{
-    title: string;
-		text: string;
+	postId: number
 }
 
-export function Post() {
+export function Post({ postId }: Props) {
+  const [post, setPost] = useState<IPost>({} as IPost);
   const navigation = useNavigation<NavigationPostProp>();
+  const { getPost } = usePosts();
+
+  useEffect(() => {
+    async function onGetPost() {
+      const mockedPostId = 4912;
+      const tempPost = await getPost(mockedPostId) as unknown as IPost;
+      if (tempPost) setPost(tempPost);
+    }
+    onGetPost();
+  }, []);
+
+  useEffect(() => {
+    console.log(':::::POST:::::', post);
+  }, [post]);
 
   return (
     <Container>

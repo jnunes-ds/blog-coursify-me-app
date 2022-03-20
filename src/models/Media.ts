@@ -1,4 +1,4 @@
-import { SizeType } from './MediaSizes';
+import { ISizeType } from './MediaSizes';
 
 export interface IMedia {
 	id: number;
@@ -6,6 +6,6 @@ export interface IMedia {
 		rendered: string;
 	};
 	media_details: {
-		size: SizeType
+		sizes: ISizeType
 	};
 }
