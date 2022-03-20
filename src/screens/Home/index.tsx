@@ -21,7 +21,10 @@ export function Home() {
         {
 					allCategories.map((item) => (<PostCardsCategoryGroup key={item.id} data={item} />))
 				}
-        <Footer />
+				{
+					!!allCategories.length
+        && <Footer />
+				}
       </Content>
     </Container>
   );

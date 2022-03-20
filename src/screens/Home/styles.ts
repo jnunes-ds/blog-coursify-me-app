@@ -7,7 +7,7 @@ export const Container = styled.View`
 `;
 
 export const Content = styled.ScrollView`
-	width: 100%;
+	min-width: 100%;
 `;
 
 export const Body = styled.View`

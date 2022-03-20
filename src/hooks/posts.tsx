@@ -1,9 +1,8 @@
 /* eslint-disable consistent-return */
 /* eslint-disable react/jsx-no-constructed-context-values */
 import React, {
-  createContext, ReactNode, useContext, useEffect, useState,
+  createContext, ReactNode, useContext, useState,
 } from 'react';
-import { AxiosResponse, AxiosError } from 'axios';
 import { ICompleteCategories } from '~/models/Categories';
 
 import BlogService from '~/services/blog.service';
