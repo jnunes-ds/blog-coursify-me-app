@@ -1,6 +1,6 @@
 import React from 'react';
 
-import coursifyLogo from '~/assets/logo-coursify-w.png.png';
+import coursifyLogo from '~/assets/logo-coursify-w.png';
 import {
   Container,
   LogoContainer,

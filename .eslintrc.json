@@ -28,6 +28,10 @@
 				"no-tabs": "off",
 				"max-len": "off",
 				"class-methods-use-this":"off",
+				"react/jsx-indent": "off",
+				"consistent-return":"off",
+				"no-console":"off",
+				"react/require-default-props": "off",
         "react/jsx-filename-extension": [
             1,
             {

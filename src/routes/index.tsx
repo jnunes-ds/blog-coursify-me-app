@@ -8,7 +8,9 @@ import {
 
 export type RootStackParamList = {
   Home: undefined;
-  Post: undefined;
+  Post: {
+		postId: number;
+	};
 };
 
 const Stack = createStackNavigator<RootStackParamList>();

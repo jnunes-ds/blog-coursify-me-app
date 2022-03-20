@@ -1,31 +1,22 @@
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable react/jsx-indent */
 /* eslint-disable no-mixed-spaces-and-tabs */
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { useNavigation } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
-// import RenderHTML from 'react-native-render-html';
-import { Dimensions } from 'react-native';
 import RenderHTML from 'react-native-render-html';
 import AppLoading from 'expo-app-loading';
-import imagePoste from '../../assets/space.png';
+import { useRoute } from '@react-navigation/native';
 import {
   Container,
   Content,
   Body,
   Title,
-  Text,
-  PostImageContainer,
-  PostImage,
 } from './styles';
-import { RootStackParamList } from '../../routes';
 import { Header, Footer } from '~/components';
 import { usePosts } from '~/hooks/posts';
 import { IPost } from '../../models/Posts';
 
-type NavigationPostProp = StackNavigationProp<RootStackParamList, 'Home'>;
-interface Props{
+interface Params{
 	postId: number
 }
 
@@ -33,19 +24,18 @@ interface ISource {
 	html: string;
 }
 
-export function Post({ postId }: Props) {
+export function Post() {
   const [loading, setLoading] = useState<boolean>(true);
   const [post, setPost] = useState<IPost>({} as IPost);
   const [postTitle, setPostTitle] = useState<string>('');
   const [postTextHTML, setPostTextHTML] = useState<ISource>({} as ISource);
-  const navigation = useNavigation<NavigationPostProp>();
-  const width = Dimensions.get('window');
   const { getPost } = usePosts();
+  const route = useRoute();
+  const { postId } = route.params as Params;
 
   useEffect(() => {
     async function onGetPost() {
-      const mockedPostId = 4912;
-      const tempPost = await getPost(mockedPostId) as unknown as IPost;
+      const tempPost = await getPost(postId) as unknown as IPost;
       if (tempPost) setPost(tempPost);
     }
     onGetPost();

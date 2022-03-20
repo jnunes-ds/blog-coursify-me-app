@@ -32,6 +32,8 @@ export function PostCardsCategoryGroup({ data } : Props) {
   const renderItem: React.FC<flatListItem> = ({ item }) => (
     <PostCardContainer key={item.id}>
       <PostCard
+        postId={item.id}
+        mediaId={item.featured_media}
         title={String(item?.title.rendered) ?? 'título'}
         text={String(item?.excerpt.rendered ?? 'Texto')}
       />
