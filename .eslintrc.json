@@ -27,6 +27,7 @@
         "no-unused-vars": "warn",
 				"no-tabs": "off",
 				"max-len": "off",
+				"class-methods-use-this":"off",
         "react/jsx-filename-extension": [
             1,
             {

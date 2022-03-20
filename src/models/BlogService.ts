@@ -5,9 +5,9 @@ import { IPost } from './Posts';
 import { IMedia } from './Media';
 
 export interface IBlogService {
-	getCategories(): AxiosResponse<ICategory[]>;
-	getPosts(): AxiosResponse<IPost[]>;
-	getMedia(): AxiosResponse<IMedia[]>;
-	getMediaById(id: number): AxiosResponse<IMedia>;
-	getPostById(id: number): AxiosResponse<IPost>;
+	getCategories(): Promise<AxiosResponse<ICategory[], AxiosError>>;
+	getPosts(): Promise<AxiosResponse<IPost[], AxiosError>>;
+	getMedia(): Promise<AxiosResponse<IMedia[], AxiosError>>;
+	getMediaById(id: number): Promise<AxiosResponse<IMedia, AxiosError>>;
+	getPostById(id: number): Promise<AxiosResponse<IPost, AxiosError>>;
 }
