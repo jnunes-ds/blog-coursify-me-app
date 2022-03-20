@@ -1,12 +1,12 @@
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import React from 'react';
-import { Header } from '~/components/Header';
-import { PostCardsCategoryGroup } from '~/components/PostCardsCategoryGroup';
+import { Header, PostCardsCategoryGroup, Footer } from '~/components';
 import { RootStackParamList } from '../../routes';
 
 import {
   Container,
+  Content,
   Body,
 } from './styles';
 
@@ -17,9 +17,12 @@ export function Home() {
   return (
     <Container>
       <Header />
-      <Body>
-        <PostCardsCategoryGroup title="Cursos online" />
-      </Body>
+      <Content showsVerticalScrollIndicator={false}>
+        <Body>
+          <PostCardsCategoryGroup title="Cursos online" />
+        </Body>
+        <Footer />
+      </Content>
     </Container>
   );
 }

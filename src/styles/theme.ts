@@ -3,6 +3,7 @@ export default {
     background: '#FFFFFF',
     primary: '#2AB598',
     primary_light: '#3CC6AA',
+    primary_footer: '#1ABC9C',
     secondary: '#FDA506',
     tertiary: '#FFA900',
     title: '#535353',
