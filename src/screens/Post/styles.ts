@@ -4,7 +4,6 @@ import { Platform } from 'react-native';
 
 export const Container = styled.View`
     flex: 1;
-		padding-bottom: 40px;
 `;
 
 export const Content = styled.ScrollView``;
