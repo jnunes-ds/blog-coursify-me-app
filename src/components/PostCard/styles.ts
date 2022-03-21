@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 import { RFValue } from 'react-native-responsive-fontsize';
+import FastImage from 'react-native-fast-image';
 
 export const Container = styled.View`
 	width: 235px;
@@ -19,7 +20,7 @@ export const CardImageContainer = styled.View`
 	overflow: hidden;
 `;
 
-export const CardImage = styled.ImageBackground`
+export const CardImage = styled(FastImage)`
 	width: 100%;
 	height: 100%;
 `;
