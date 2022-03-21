@@ -91,7 +91,7 @@ export function PostCard({
 							}}
 							/>
 					  ) : (
-  						<CardImage resizeMode="center" source={Logo} />
+  						<CardImage resizeMode="contain" source={Logo} />
 					  )
 				}
       </CardImageContainer>
