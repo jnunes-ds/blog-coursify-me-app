@@ -58,6 +58,7 @@ export function Post() {
 							<style>
 									body {
 										color: ${text}
+										font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 									}
 							</style>
 							<title>Document</title>
@@ -65,11 +66,13 @@ export function Post() {
 					<body>
 							${
   post.content.rendered
-    .replace(/<b/g, `<b style="color:${text}"`)
+    .replace(/<b/g, `<b style="color:${text}",font-size:17px`)
     .replace(/<l/g, `<b style="color:"${text}"`)
-    .replace(/<span/g, `<span style="color:${text}"`)
-    .replace(/<strong/g, `<strong style="color:${text}"`)
-    .replace(/<li/g, `<li style="color:${text}"`)
+    .replace(/<span/g, `<span style="color:${text}",font-size:17px`)
+    .replace(/<strong/g, `<strong style="color:${text}",font-size:17px`)
+    .replace(/<li/g, `<li style="color:${text}",font-size:17px`)
+    .replace(/size-full/g, '')
+    .replace(/sizes/g, '')
 }
 					</body>
 					</html>
